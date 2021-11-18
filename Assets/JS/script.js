@@ -17,8 +17,6 @@ saveBtn.click(function () {
   localStorage.setItem(time, value);
 });
 
-// Get any data from local storage
-
 const nineAM = $("#input-hour-9");
 const tenAM = $("#input-hour-10");
 const elevenAM = $("#input-hour-11");
@@ -28,6 +26,26 @@ const twoPM = $("#input-hour-2");
 const threePM = $("#input-hour-3");
 const fourPM = $("#input-hour-4");
 const fivePM = $("#input-hour-5");
+
+// Get any data from local storage
+// 9am
+nineAM.val(localStorage.getItem("9"));
+// 10am
+tenAM.val(localStorage.getItem("10"));
+// 11am
+elevenAM.val(localStorage.getItem("11"));
+// 12am
+twelvePM.val(localStorage.getItem("12"));
+// 1pm
+onePM.val(localStorage.getItem("13"));
+// 2pm
+twoPM.val(localStorage.getItem("14"));
+// 3pm
+threePM.val(localStorage.getItem("15"));
+// 4pm
+fourPM.val(localStorage.getItem("16"));
+// 5pm
+fivePM.val(localStorage.getItem("17"));
 
 const hour9 = 9;
 const hour10 = 10;
