@@ -1,22 +1,6 @@
-// Display current date and time
-const currentDay = moment().format("llll");
-$("#currentDay").html(currentDay);
+//* Variables
 
-// Get current time
-const currentHour = moment().hour();
-
-const saveBtn = $(".saveBtn");
-
-// Save to Local Storage
-// Use notes to explain how this works!
-saveBtn.click(function () {
-  const value = $(this).siblings(".description").val();
-  const time = $(this).parent().attr("id");
-  console.log($(this));
-
-  localStorage.setItem(time, value);
-});
-
+//Textarea for each timeblock
 const nineAM = $("#input-hour-9");
 const tenAM = $("#input-hour-10");
 const elevenAM = $("#input-hour-11");
@@ -27,7 +11,31 @@ const threePM = $("#input-hour-3");
 const fourPM = $("#input-hour-4");
 const fivePM = $("#input-hour-5");
 
-// Get any data from local storage
+// Work Hours
+const hour9 = 9;
+const hour10 = 10;
+const hour11 = 11;
+const hour12 = 12;
+const hour1 = 13;
+const hour2 = 14;
+const hour3 = 15;
+const hour4 = 16;
+const hour5 = 17;
+
+// Current date and time
+const currentDay = moment().format("llll");
+
+// Current hour
+const currentHour = moment().hour();
+
+// Save button
+const saveBtn = $(".saveBtn");
+
+// Display current date and time
+$("#currentDay").html(currentDay);
+
+//* Getting data from Local Storage
+
 // 9am
 nineAM.val(localStorage.getItem("9"));
 // 10am
@@ -47,16 +55,9 @@ fourPM.val(localStorage.getItem("16"));
 // 5pm
 fivePM.val(localStorage.getItem("17"));
 
-const hour9 = 9;
-const hour10 = 10;
-const hour11 = 11;
-const hour12 = 12;
-const hour1 = 13;
-const hour2 = 14;
-const hour3 = 15;
-const hour4 = 16;
-const hour5 = 17;
+//* Change background colour of textarea depending on time
 
+// If the currentHour is greater than, less than or equal to the specified hour in each timeblock then a different class will be added
 //9am
 if (currentHour < hour9) {
   nineAM.addClass("future");
@@ -131,3 +132,14 @@ if (currentHour < hour5) {
 } else if (currentHour == hour5) {
   fivePM.addClass("present");
 }
+
+//*Event Listeners
+
+// Save to Local Storage
+// When the this keyword is called using event listeners, it will point toward the DOM element that the event listener is attached to, thus the saveBtn in this case
+saveBtn.click(function () {
+  const value = $(this).siblings(".description").val();
+  const time = $(this).parent().attr("id");
+
+  localStorage.setItem(time, value);
+});

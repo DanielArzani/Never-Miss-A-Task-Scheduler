@@ -70,6 +70,8 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
+/* Displays empty div as border to match mockup */
+
 .bottom-bdr {
   display: block;
   border: 1px solid;
